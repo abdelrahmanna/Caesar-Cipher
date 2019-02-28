@@ -5,25 +5,15 @@ Created on Tue Feb 26 19:48:28 2019
 @author: Abd-Elrahman
 """
 #file handeling class
-class FileIO:
-    
-    def readFile( self, fileName):
-        f = open( fileName,'r')
-        content = f.read()
-        f.close()
-        return content
-    
-    def writeFile( self, fileName, content):
-        f = open( fileName,'w')
-        f.write(content)
-        f.close()
+
+from fileIO import FileIO
 
 
 
 class CaesarCipher:
     
     
-    def incrypt( self, string, step):
+    def encrypt( self, string, step):
         incryptedString = ""
         for i in string:
             if(i.isalpha()):
@@ -49,7 +39,7 @@ cipher = CaesarCipher()
 string = file.readFile("inputFile.txt")
 
 #incrypting input with caesar cipher
-istring = cipher.incrypt(string , 5)
+istring = cipher.encrypt(string , 5)
 
 #writing output to a file
 file.writeFile("outputFile.txt", istring)
